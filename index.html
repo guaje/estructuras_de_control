@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Estructuras de Control</title>
+
+		<meta name="description" content="Control Structures">
+		<meta name="author" content="Javier Guaje">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/dark-blue.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                
+<section data-markdown>
+	# Estructuras de Control
+	#####Javier Guaje
+</section>
+<section data-markdown>
+	# Estructura de Control Condicional
+</section>
+<section>
+	<section data-markdown>
+		## Condicional Sí (if)
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Condicional Sí (if): Introducción
+
+		Es posible tener programas en los que se deban cubrir diferentes casos, para los cuales se deberán retornar diferentes valores dadas unas condiciones.
+
+		<!-- .element: class="fragment" -->
+		La estructura de control condicional o de selección permite ejecutar, o un grupo de instrucciones u otro grupo si una condición se cumple o no.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Representación mediante Diagrama de Flujo
+
+		![Alt text](http://www.geocities.ws/david_ees/Imagenes/if-else.gif)
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion)
+	{
+	    // Instruccion 1 cuando la condicion es verdadera
+	    // Instruccion 2 cuando la condicion es verdadera
+	    // ...
+	    // Instruccion n cuando la condicion es verdadera
+	}
+	else
+	{
+	    // Instruccion 1 cuando la condicion es falsa
+	    // Instruccion 2 cuando la condicion es falsa
+	    // ...
+	    // Instruccion n cuando la condicion es falsa
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion:
+	# Instruccion 1 cuando la condicion es verdadera
+	# Instruccion 2 cuando la condicion es verdadera
+	# ...
+	# Instruccion n cuando la condicion es verdadera
+else:
+	# Instruccion 1 cuando la condicion es falsa
+	# Instruccion 2 cuando la condicion es falsa
+	# ...
+	# Instruccion n cuando la condicion es falsa
+
+# Mas instrucciones
+```
+	</section>
+
+	<section>
+		<h2>Condicional Sí (if): Ejemplo</h2>
+
+		<p>
+			La función que permite calcular el valor absoluto de un número real es una función que recibe como parámetro de entrada un número real y retorna la distancia de ese valor al origen. La función valor absoluto en notación matemática se define como:
+		</p>
+
+		<p class="fragment">
+			<i>valorAbsoluto</i> : \(\mathbb{R} \rightarrow \mathbb{R}\)
+
+			$$􏰄(x) = \begin{cases} x, & \text{si $x \geq 0$;} \\ -x, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float valorAbsoluto(float x)
+{
+	if(x >= 0)
+	{
+	    return x;
+	}
+	else
+	{
+	    return -x;
+	}
+}
+
+int main()
+{
+	float x = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	y = valorAbsoluto(x);
+	cout << "El valor absoluto de " << x << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def valorAbsoluto(x):
+	if x >= 0:
+	    return x
+	else:
+	    return -x
+
+x = float(input("Ingrese un numero: \t"))
+y = valorAbsoluto(x)
+print("El valor absoluto de " + str(x) + " es: " + str(y))
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float valorAbsoluto(float x)
+{
+	return x >= 0 ? x : -x;
+}
+
+int main()
+{
+	float x = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	y = valorAbsoluto(x);
+	cout << "El valor absoluto de " << x << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def valorAbsoluto(x):
+	return x if x >= 0 else -x
+
+x = float(input("Ingrese un numero: \t"))
+y = valorAbsoluto(x)
+print("El valor absoluto de " + str(x) + " es: " + str(y))
+```
+	</section>
+
+	<section>
+		<h2>Condicional Sí (if): Ejemplo</h2>
+
+		<p>
+			Una función que permite determinar el máximo de dos números reales, se puede definir como:
+		</p>
+
+		<p class="fragment">
+			<i>maximo</i> : \(\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\)
+		</p>
+
+		<p class="fragment">
+			aquí se tienen dos casos, si el número \(a\) es mayor que \(b\) el valor máximo es \(a\); en otro caso se debe retornar \(b\). En notación matemática esto puede ser escrito de la siguiente forma:
+		</p>
+
+		<p class="fragment">
+			<i>maximo</i> : \(\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\)
+
+			$$􏰄(a, b) = \begin{cases} a, & \text{si $a > b$;} \\ b, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float maximo(float a, float b)
+{
+	if(a > b)
+	{
+	    return a;
+	}
+	else
+	{
+	    return b;
+	}
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> a;
+	cout << "Ingrese un numero: \t";
+	cin >> b;
+	y = maximo(a, b);
+	cout << y << " es el mayor de los 2 numeros." << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def maximo(a, b):
+	if a > b:
+	    return a
+	else:
+	    return b
+
+a = float(input("Ingrese un numero: \t"))
+b = float(input("Ingrese un numero: \t"))
+y = maximo(a, b)
+print(str(y) + " es el mayor de los 2 numeros.")
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Usando el operador ternario
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float maximo(float a, float b)
+{
+	return a > b ? a : b;
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> a;
+	cout << "Ingrese un numero: \t";
+	cin >> b;
+	y = maximo(a, b);
+	cout << y << " es el mayor de los 2 numeros." << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def maximo(a, b):
+	return a if a > b else b
+
+a = float(input("Ingrese un numero: \t"))
+b = float(input("Ingrese un numero: \t"))
+y = maximo(a, b)
+print(str(y) + " es el mayor de los 2 numeros.")
+```
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura condicional sin opción alternativa: Definición
+
+		Un caso muy común es cuando se desea que se ejecute un grupo de instrucciones solo cuando se cumpla una condición y que posteriorment se continue con la ejecución del resto del programa. En estos casos se requiere de un condicional sin opción alternativa.
+
+		<!-- .element: class="fragment" -->
+		Este tipo de estructura se suele utilizar cuando se desea agregar una evaluación intermedia de una expresión cuando la condición se evaluá verdadero, pero que no tiene impacto sobre la ejecución del resto del programa que le sigue al condicional.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Representación mediante Diagrama de Flujo
+
+		![Alt text](https://elementoscomputaciontec.wikispaces.com/file/view/Diagrama_flujo_condicionales.gif/310346834/Diagrama_flujo_condicionales.gif)
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion)
+	{
+	    // Instruccion 1 cuando la condicion es verdadera
+	    // Instruccion 2 cuando la condicion es verdadera
+	    // ...
+	    // Instruccion n cuando la condicion es verdadera
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion:
+	# Instruccion 1 cuando la condicion es verdadera
+	# Instruccion 2 cuando la condicion es verdadera
+	# ...
+	# Instruccion n cuando la condicion es verdadera
+
+# Mas instrucciones
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo
+
+		Cuando se realiza la impresión de un número en la consola o cualquier otro dispositivo de salida, a veces se desea que si un número es positivo, este sea impreso con el signo +, es decir, que para el caso del número 3.14159265 su impresión seria +3.14159265 en vez de su tradicional representación 3.14159265. Para el caso del cero (0) y los números negativos la impresión es la usual.
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void imprimir(float x)
+{
+	if(x > 0)
+	{
+	    cout << "+";
+	}
+	cout << x << endl;
+}
+
+int main()
+{
+	float x = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	imprimir(x);
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def imprimir(x):
+	if x > 0:
+	    print("+", end="")
+	print(str(x))
+
+x = float(input("Ingrese un numero: \t"))
+imprimir(x)
+```
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		En los lenguajes de programación típicamente están definidos los operadores lógicos de la negación (\(\lnot\)), la conjunción (\(\land\)) y la disyunción (\(\lor\)), pero el condicional y el bicondicional no lo están, por lo tanto si se quiere utilizar estos operadores es necesario construir las funciones que permitan utilizar estos operadores. Para el caso del condicional y a partir de la tabla de verdad correspondiente.
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		<p>
+			Se puede definir una función que permita calcular la operación condicional de un par de variables booleanas y que retorna el resultado de operar los valores mediante un condicional, de la siguiente manera:
+		</p>
+
+		<p class="fragment">
+			<i>condicional</i> : \(\mathbb{B} \times \mathbb{B} \rightarrow \mathbb{B}\)
+		</p>
+
+		<p class="fragment">
+			aquí se tienen dos casos, primero, si el antecedente es verdadero y el consecuente es falso, entonces el resultado de aplicar el condicional es falso, para cualquier otro caso el condicional es verdadero.
+		</p>
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		<p>
+			En notación matemática esto puede ser escrito de la siguiente manera:
+		</p>
+
+		<p class="fragment">
+			<i>condicional</i> : \(\mathbb{B} \times \mathbb{B} \rightarrow \mathbb{B}\)
+
+			$$􏰄(p, q) = \begin{cases} F, & \text{si $\xi(p) = V \land \xi(q) = F;$} \\ V, & \text{en cualquier otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool condicional(bool p, bool q)
+{
+	if(p == true && q == false)
+	{
+	    return false;
+	}
+	return true;
+}
+
+int main()
+{
+	bool p = false;
+	bool q = false;
+	bool y = false;
+	cout << "Ingrese un booleano: \t";
+	cin >> p;
+	cout << "Ingrese un booleano: \t";
+	cin >> q;
+	y = condicional(p, q);
+	cout << "El condicional entre " << p;
+	cout << " y " << q;
+	cout << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def condicional(p, q):
+	if p == True and q == False:
+	    return False
+	return True
+
+p = bool(int(input("Ingrese un booleano: \t")))
+q = bool(int(input("Ingrese un booleano: \t")))
+y = condicional(p, q)
+print("El condicional entre " + str(p), end="")
+print(" y " + str(q), end="")
+print(" es: " + str(y))
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool condicional(bool p, bool q)
+{
+	return (p == true && q == false) ? false : true;
+}
+
+int main()
+{
+	bool p = false;
+	bool q = false;
+	bool y = false;
+	cout << "Ingrese un booleano: \t";
+	cin >> p;
+	cout << "Ingrese un booleano: \t";
+	cin >> q;
+	y = condicional(p, q);
+	cout << "El condicional entre " << p;
+	cout << " y " << q;
+	cout << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def condicional(p, q):
+	return False if (p == True and q == False) else True
+
+p = bool(int(input("Ingrese un booleano: \t")))
+q = bool(int(input("Ingrese un booleano: \t")))
+y = condicional(p, q)
+print("El condicional entre " + str(p), end="")
+print(" y " + str(q), end="")
+print(" es: " + str(y))
+```
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Condicionales Enlazados
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Definición
+
+		Otra de las opciones para utilizar una estructura condicional es la de enlazar varias estructuras condicionales, de tal manera que solamente se pueda ejecutar un grupo de instrucciones dependiendo de cual de las opciones se evaluá verdadero. De la misma manera que en el caso del condicional tradicional la parte alternativa del final es opcional.
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion 1)
+	{
+	    // Instruccion 1 cuando la condicion 1 se cumple
+	    // Instruccion 2 cuando la condicion 1 se cumple
+	    // ...
+	    // Instruccion m cuando la condicion 1 se cumple
+	}
+	else if(//Condicion 2)
+	{
+	    // Instruccion 1 cuando la condicion 2 se cumple
+	    // Instruccion 2 cuando la condicion 2 se cumple
+	    // ...
+	    // Instruccion n cuando la condicion 2 se cumple
+	}
+	// ...
+	else if(//Condicion i)
+	{
+	    // Instruccion 1 cuando la condicion i se cumple
+	    // Instruccion 2 cuando la condicion i se cumple
+	    // ...
+	    // Instruccion o cuando la condicion i se cumple
+	}
+	// ...
+	else if(//Condicion n-1)
+	{
+	    // Instruccion 1 cuando la condicion n-1 se cumple
+	    // Instruccion 2 cuando la condicion n-1 se cumple
+	    // ...
+	    // Instruccion p cuando la condicion n-1 se cumple
+	}
+	else
+	{
+	    // Instruccion 1 cuando ninguna de las condiciones se cumple
+	    // Instruccion 2 cuando ninguna de las condiciones se cumple
+	    // ...
+	    // Instruccion q cuando ninguna de las condiciones se cumple
+	}
+
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion 1:
+    # Instruccion 1 cuando la condicion 1 se cumple
+    # Instruccion 2 cuando la condicion 1 se cumple
+    # ...
+    # Instruccion m cuando la condicion 1 se cumple
+elif #Condicion 2:
+    # Instruccion 1 cuando la condicion 2 se cumple
+    # Instruccion 2 cuando la condicion 2 se cumple
+    # ...
+    # Instruccion n cuando la condicion 2 se cumple
+# ...
+elif #Condicion i:
+    # Instruccion 1 cuando la condicion i se cumple
+    # Instruccion 2 cuando la condicion i se cumple
+    # ...
+    # Instruccion o cuando la condicion i se cumple
+# ...
+elif #Condicion n-1:
+    # Instruccion 1 cuando la condicion n-1 se cumple
+    # Instruccion 2 cuando la condicion n-1 se cumple
+    # ...
+    # Instruccion p cuando la condicion n-1 se cumple
+else:
+    # Instruccion 1 cuando ninguna de las condiciones se cumple
+    # Instruccion 2 cuando ninguna de las condiciones se cumple
+    # ...
+    # Instruccion q cuando ninguna de las condiciones se cumple
+
+# Mas instrucciones
+```
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+
+		<p>
+			Para un procedimiento que permite comparar dos números reales (\(a, b\)), se pueden tener las siguientes condiciones:
+		</p>
+
+		<ul>
+			<li class="fragment">
+				Si el número \(a\) es mayor que \(b\), el programa deberá indicar que \(a\) es mayor que \(b\).
+			</li>
+			<li class="fragment">
+				Si el número \(b\) es mayor que \(a\), el programa deberá indicar que \(b\) es mayor que \(a\).
+			</li>
+			<li class="fragment">
+				Si el número \(a\) es igual al número \(b\), el programa deberá indicar que ambos números son iguales.
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+			
+		<p>
+			Podemos escribir lo anterior de la siguiente forma:
+		</p>
+
+		<p class="fragment">
+			$$\begin{cases} a > b, & \text{si $a > b$;} \\ b > a, & \text{si $b > a$;} \\ a = b, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void comparar(float a, float b)
+{
+	if(a > b)
+	{
+	    cout << "a es mayor que b." << endl;
+	}
+	else if (b > a)
+	{
+	    cout << "b es mayor que a." << endl;
+	}
+	else
+	{
+	    cout << "Los numeros son iguales." << endl;
+	}
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	cout << "Ingrese el valor de a: \t";
+	cin >> a;
+	cout << "Ingrese el valor de b: \t";
+	cin >> b;
+	comparar(a, b);
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en Python
+
+```python
+def comparar(a, b):
+	if a > b:
+	    print("a es mayor que b.")
+	elif b > a:
+	    print("b es mayor que a.")
+	else:
+	    print("Los numeros son iguales.")
+
+a = float(input("Ingrese el valor de a: \t"))
+b = float(input("Ingrese el valor de b: \t"))
+comparar(a, b)
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo
+
+		Si un cliente lleva más de 5 productos del mismo tipo le realizan un descuento del 5%. Si lleva más de 10 productos del mismo tipo le realizan un descuento del 10%. Si lleva más de 20 productos del mismo tipo le realizan un descuento del 20%. Realizar un programa que dado el número de productos y el precio del producto determine el valor a pagar por el cliente.
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Condicionales Enlazados: Ejemplo
+
+		La siguiente función permitirá calcular el valor deseado:
+
+		_pagoFinal(n, precio)_ = _valor_
+
+		<!-- .element: class="fragment" -->
+		Si se establecen las variables:
+
+		- <!-- .element: class="fragment" -->
+		precio := Valor de cada producto
+		- <!-- .element: class="fragment" -->
+		n := Número de productos
+		- <!-- .element: class="fragment" -->
+		valor := Valor total a pagar despues de aplicar el descuento
+		</script>
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+
+		<p>
+			Entonces tenemos que:
+		</p>
+
+		<p class="fragment">
+			<i>pagoFinal</i> = \(\mathbb{Z} \times \mathbb{R} \rightarrow \mathbb{R}\)
+		</p>
+
+		<p class="fragment">
+			$$(n, precio) \rightarrow \begin{cases} n * precio, & \text{si $n < 5$;} \\ n * precio * 0.95, & \text{si $5 < n \leq 10$;} \\ n * precio * 0.9, & \text{si $10 < n \leq 20$;} \\ n * precio * 0.8, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float pagoFinal(int n, float precio)
+{
+	if(n <= 5)
+	{
+	    return n * precio;
+	}
+	else if(5 < n && n <= 10)
+	{
+	    return n * precio * 0.95;
+	}
+	else if(10 < n && n <= 20)
+	{
+	    return n * precio * 0.9;
+	}
+	else
+	{
+	    return n * precio * 0.8;
+	}
+}
+
+int main()
+{
+	int n = 0;
+	float precio = 0;
+	float y = 0;
+	cout << "Ingrese el numero de productos: \t";
+	cin >> n;
+	cout << "Ingrese el precio del producto: \t";
+	cin >> precio;
+	y = pagoFinal(n, precio);
+	cout << "El valor a pagar es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en Python
+
+```python
+def pagoFinal(n, precio):
+	if n <= 5:
+	    return n * precio
+	elif 5 < n and n <= 10:
+	    return n * precio * 0.95
+	elif 10 < n and n <= 20:
+	    return n * precio * 0.9
+	else:
+	    return n * precio * 0.8
+
+n = int(input("Ingrese el numero de productos: \t"))
+precio = float(input("Ingrese el precio del producto: \t"))
+y = pagoFinal(n, precio)
+print("El valor a pagar es: " + str(y))
+```
+	</section>
+</section>
+<section data-markdown>
+	# Estructura de Conmutación
+</section>
+<section>
+	<section data-markdown>
+		## Estructura Switch
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura Switch: Definición
+
+		Esta estructura se usa cuando se tiene una instrucción if enlazada en la cual las condiciones consisten en comparar una misma variable con grupos de valores constantes de forma repetida.
+
+		<!-- .element: class="fragment" -->
+		El aspecto general de una instrucción switch es la siguiente:
+
+		- <!-- .element: class="fragment" -->
+		La variable aparece únicamente como parámetro de la instrucción switch.
+		- <!-- .element: class="fragment" -->
+		Cada uno de los valores puntuales se trata como un caso, especificando la palabra case seguido de la variable y terminando con : (dos puntos).
+		</script>
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura Switch: Definición
+
+		- A continuación se escribe el cuerpo de instrucciones a realizar en cada caso.
+		- <!-- .element: class="fragment" -->
+		Se termina con una instrucción break que obliga a que se deje de ejecutar la instrucción switch.
+		- <!-- .element: class="fragment" -->
+		Como en el caso de la instrucción if enlazada el último else es opcional y se ejecuta cuando ningún otro caso es ejecutado, en el caso del switch existe la instrucción default que realiza las mismas funciones.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	switch(//Variable)
+	{
+	    case //Valor 1:
+	        // Instruccion 1 cuando la variable toma el 1er valor
+	        // Instruccion 2 cuando la variable toma el 1er valor
+	        // ...
+	        // Instruccion m cuando la variable toma el 1er valor
+	    break;
+	    case //Valor 2:
+	        // Instruccion 1 cuando la variable toma el 2do valor
+	        // Instruccion 2 cuando la variable toma el 2do valor
+	        // ...
+	        // Instruccion n cuando la variable toma el 2do valor
+	    break;
+	    // ...
+	    case //Valor i:
+	        // Instruccion 1 cuando la variable toma el i-esimo valor
+	        // Instruccion 2 cuando la variable toma el i-esimo valor
+	        // ...
+	        // Instruccion o cuando la variable toma el i-esimo valor
+	    break;
+	    // ...
+	    case //Valor n-1:
+	        // Instruccion 1 cuando la variable toma el n-1-esimo valor
+	        // Instruccion 2 cuando la variable toma el n-1-esimo valor
+	        // ...
+	        // Instruccion p cuando la variable toma el n-1-esimo valor
+	    break;
+	    default:
+	        // Instruccion 1 cuando la variable toma ninguno de los valores
+	        // Instruccion 2 cuando la variable toma ninguno de los valores
+	        // ...
+	        // Instruccion q cuando la variable toma ninguno de los valores
+	    break;
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Dado un caracter, determinar si este es una vocal minúscula.
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en Python
+
+```python
+def esVocal(c):
+	return c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u'
+
+c = str(input("Ingrese un caracter: \t"))
+print(str(esVocal(c)))
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	        return true;
+	    break;
+	    case 'e':
+	        return true;
+	    break;
+	    case 'i':
+	        return true;
+	    break;
+	    case 'o':
+	        return true;
+	    break;
+	    case 'u':
+	        return true;
+	    break;
+	    default:
+	        return false;
+	    break;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Cuando en una instrucción switch varios casos se tratan de la misma forma, entonces estos se pueden agrupar en uno o varios casos, como se muestra a continuación:
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	    case 'e':
+	    case 'i':
+	    case 'o':
+	    case 'u':
+	        return true;
+	    break;
+	    default:
+	        return false;
+	    break;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Es usual que las instructiones que se ejecutan dentro de los casos de una instrucción switch se retornen directamente cuando se calculen dentro de una función, para estos casos, en vez de dejar de ejecutar el switch con un break, se puede retornar el valor directamente mediante el uso de la instrucción return.
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	    case 'e':
+	    case 'i':
+	    case 'o':
+	    case 'u':
+	        return true;
+	    default:
+	        return false;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: false,
+
+				// Display the page number of the current slide
+				slideNumber: true,
+
+				// Push each slide change to the browser history
+				history: true,
+
+				// Enable keyboard shortcuts for navigation
+				keyboard: true,
+
+				// Enable the slide overview mode
+				overview: true,
+
+				// Vertical centering of slides
+				center: true,
+
+				// Enables touch navigation on devices with touch input
+				touch: true,
+
+				// Loop the presentation
+				loop: false,
+
+				// Change the presentation direction to be RTL
+				rtl: false,
+
+				// Turns fragments on and off globally
+				fragments: true,
+
+				// Flags if the presentation is running in an embedded mode,
+				// i.e. contained within a limited portion of the screen
+				embedded: false,
+
+				// Flags if we should show a help overlay when the questionmark
+				// key is pressed
+				help: true,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 0,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: true,
+
+				// Enable slide navigation via mouse wheel
+				mouseWheel: false,
+
+				// Hides the address bar on mobile devices
+				hideAddressBar: true,
+
+				// Opens links in an iframe preview overlay
+				previewLinks: false,
+
+				// Transition style
+				transition: 'slide', // default/none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+				// Number of slides away from the current that are visible
+				viewDistance: 3,
+
+				// Parallax background image
+				parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+				// Parallax background size
+				parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+				// Optional reveal.js plugins
+				dependencies: [
+				// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+				// Interpret Markdown in <section> elements
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+				// Syntax highlight for <code> elements
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+				// Zoom in and out with Alt+click
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+
+				// Speaker notes
+				{ src: 'plugin/notes/notes.js', async: true },
+
+				// Remote control your reveal.js presentation using a touch device
+				{ src: 'plugin/remotes/remotes.js', async: true },
+
+				// MathJax
+				{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
